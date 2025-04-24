@@ -45,13 +45,17 @@ level: 2
 
 1. ChatGPT 產出初始開發規則與 API 規格（Markdown）- `project-rules.md`, `api-spec.md`
   ```
-  我要使用 Cursor 來寫 Laravel 的功能，我有 api 規格，還要給哪些文件可以幫助 cursor 更容易了解功能，可以幫我產生一些提示詞嗎？
+  > 我要使用 Cursor 來寫 Laravel 的功能，我有 api 規格，還要給哪些文件可以幫助 cursor 更容易了解功能，可以幫我產生一些提示詞嗎？
   ```
 2. 在 Cursor 中依據規範開發程式碼
+  ```
   > 請根據 `project-rules.md` 的規範開發 `api-spec.md` 的 API
+  ```
 3. 人工調整程式碼
 4. 在 Cursor 中根據修正內容更新開發規範文件與需求文件
+  ```
   > 請根據前一個 commit 修改的內容，來優化 `project-rules.md` 與  `api-spec.md` 讓你可以更理解需求進行開發
+  ```
 5. 新增下一隻 API 的需求文件
 6. 重複流程直到任務完成
 
@@ -250,9 +254,16 @@ layout: two-cols
 ```
 
 - 讀程式碼並自動生成開發規範
-- 條件化套用 Rules（指令／分支／路徑匹配）
-- 規則可視化管理
-- 規則版本控制與擴充
+  - .cursor/rules
+  - 幫助 AI 更好地了解你的代碼庫結構
+- 可加入版本控制
+- 條件化套用 Rules
+  - Always
+  - Auto Attached: 設定套用檔案 rule
+  - Agent Requested: 根據描述 AI 判斷是否包含規則
+  - Manual: 要指定才會套用
+
+參考連結: https://docs.cursor.com/context/rules
 
 ::right::
 <div class="flex items-center justify-center h-full">
